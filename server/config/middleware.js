@@ -1,6 +1,8 @@
 var morgan      = require('morgan'), // used for logging incoming request
     bodyParser  = require('body-parser'),
-    helpers     = require('./helpers.js'); // our custom middleware
+    helpers     = require('./helpers.js'), // our custom middleware
+    mountUserRoutes  = require('../users/userRoutes.js'),
+    mountLinkRoutes  = require('../links/linkRoutes.js');
 
 
 module.exports = function (app, express) {
@@ -16,13 +18,13 @@ module.exports = function (app, express) {
 
   app.use('/api/users', userRouter); // use user router for all user request
 
-  // authentication middleware used to decode token and made available on the request
-  //app.use('/api/links', helpers.decode);
+  // authentication middleware used to decode token and make available on the request
+  // app.use('/api/links', helpers.decode);
   app.use('/api/links', linkRouter); // user link router for link request
   app.use(helpers.errorLogger);
   app.use(helpers.errorHandler);
 
   // inject our routers into their respective route files
-  require('../users/userRoutes.js')(userRouter);
-  require('../links/linkRoutes.js')(linkRouter);
+  mountUserRoutes(userRouter);
+  mountLinkRoutes(linkRouter);
 };
