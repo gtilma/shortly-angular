@@ -11,9 +11,11 @@ angular.module('shortly.auth', [])
       .then(function (token) {
         $window.localStorage.setItem('com.shortly', token);
         $location.path('/links');
+        $scope.signinError = false;
       })
       .catch(function (error) {
         console.error(error);
+        $scope.signinError = true;
       });
   };
 
@@ -28,8 +30,4 @@ angular.module('shortly.auth', [])
       });
   };
 
-  $scope.signout = function () {
-    console.log('in controller signout')
-    Auth.signout();
-  }
 });

@@ -13,7 +13,6 @@ angular.module('shortly.shorten', [])
       console.error(err);
     })
     .then(function(){
-      // Links.getLinks();
       $location.path('/links');
     })
     .catch(function(err){
