@@ -5,5 +5,5 @@ angular.module('shortly.links', [])
   $scope.getLinks()
     .catch(function(err){
       console.error(err);
-    })
-})
+    });
+});

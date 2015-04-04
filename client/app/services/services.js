@@ -54,6 +54,7 @@ angular.module('shortly.services', [])
   };
 
   var signout = function () {
+    console.log('in factory signout')
     $window.localStorage.removeItem('com.shortly');
     $location.path('/signin');
   };

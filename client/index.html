@@ -6,8 +6,14 @@
     <link rel="stylesheet" type="text/css" href="styles/style.css" />
   </head>
   <body>
+    <div class="navigation">
+      <ul>
+        <li><a href="/#/links">Links</a></li>
+        <li><a href="/#/shorten">Shorten</a></li>
+        <li><a href="/#/logout">Logout</a></li>
+      </ul>
+    </div>
     <h1>Shortly</h1>
-    
     <!-- the ng-view directive is where our templates will be loaded into when navigated to -->
     <div ng-view></div>
 
@@ -15,6 +21,7 @@
     <script src="lib/angular-route/angular-route.js"></script>
 
     <script src="app/auth/auth.js"></script>
+    <script src="app/auth/logout.js"></script>
     <script src="app/links/links.js"></script>
     <script src="app/shorten/shorten.js"></script>
     <script src="app/services/services.js"></script>
