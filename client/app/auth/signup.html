@@ -1,6 +1,7 @@
 <div id='signup'>
   <h1>signup</h1>
   <form name="signupForm" ng-submit='signup()'>
+    <div class="error" ng-show="signupError">User already exists!</div>
     <input type='text' ng-model='user.username'>
     <input type="password" ng-model='user.password'>
     <button>signup</button>

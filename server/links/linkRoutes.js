@@ -10,7 +10,7 @@ module.exports = function (app) {
   app.param('code', linksController.findUrl);
 
   // app.route('/')
-  app.get('/', linksController.allLinks)
+  app.get('/', linksController.allLinks);
   app.post('/', linksController.newLink);
 
   app.get('/:code', linksController.navToLink);

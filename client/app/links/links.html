@@ -1,5 +1,12 @@
 <div id='container'>
+  <input ng-model="searchText">
   <ul>
-    <li ng-repeat="link in data.links">{{ link }}</li>
+    <li class="link" ng-repeat="link in data.links | orderBy: '-visits' | filter: searchText">
+      <img src="/assets/redirect_icon.png">
+      <div class="title">{{ link.title }}</div>
+      <div class="original">{{ link.url}}</div>
+      <a href="/api/links/{{ link.code }}" target="_blank">{{ link.base_url }}/{{ link.code }}</a>
+      <div class="visits"><span class="count">{{ link.visits }}</span></div>
+    </li>
   </ul>
 </div>
